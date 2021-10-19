@@ -1,3 +1,4 @@
+
 public class Collision {
 
 	static DoublyLinkedList [] myTable = new DoublyLinkedList [5];
@@ -13,7 +14,8 @@ public class Collision {
 		insert(21, "Mariam");
 		
 		printData ();
-	
+		System.out.println("\nFind a user with id "+findNode(21));
+		
 	}
 	
 	public static void insert (int key, String name) {
@@ -58,6 +60,27 @@ public class Collision {
 			
 			System.out.println("\n");
 		}
+	}
+	
+	public static boolean findNode(int key) {
+		
+		int index = hashFunction(key);
+		boolean found = false;
+		
+		DoublyLinkedList n = myTable[index]; //the element in the table is of this class.
+		
+		if (n!=null) {
+			DoublyLinkedList.Node head = n.head; //get the node
+			
+			while (head.key != key && head.next !=null) {
+				head = head.next;
+				if(head.key == key) {
+					found = true;
+					break;
+				}	
+			}
+		}
+		return found;
 	}
 
 

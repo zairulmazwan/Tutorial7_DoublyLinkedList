@@ -105,6 +105,7 @@ public class DoublyLinkedList {
 		
 		return res;
 	}
+	
 
 	public static void printNodes (DoublyLinkedList nodes) {
 		
